@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Genre Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📖 Book Genre Classification</h1>
+        <p>Upload a CSV file with a 'summary' column or enter a book summary to classify its genre.</p>
+
+        <div class="options">
+            <label><input type="radio" name="inputType" value="text" checked> Enter Summary</label>
+            <label><input type="radio" name="inputType" value="file"> Upload CSV</label>
+        </div>
+
+        <form id="prediction-form">
+            <div id="text-input-section">
+                <textarea id="summary-text" name="summary" rows="10" placeholder="Enter book summary here..."></textarea>
+            </div>
+            <div id="file-input-section" style="display: none;">
+                <input type="file" id="csv-file" name="file" accept=".csv">
+            </div>
+            <button type="submit">Classify</button>
+        </form>
+
+        <div id="result-section">
+            <h2>Classification Result:</h2>
+            <div id="result"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
